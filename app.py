@@ -60,7 +60,8 @@ set_bg(img_path)
 def ensure_dataset():
     if not os.path.exists(DATASET):
         st.info("Downloading Dataset Indo...")
-        gdown.download(DATASET_URL, DATASET_ZIP, quiet=False)
+        url = f"https://drive.google.com/uc?id=1Qh8kIajzJfVmj0hHnaNEQe6TptNoPjHj"
+        gdown.download(url, DATASET_ZIP, quiet=False, fuzzy=True)
         with zipfile.ZipFile(DATASET_ZIP, 'r') as zip_ref:
             zip_ref.extractall('.')
         os.remove(DATASET_ZIP)
