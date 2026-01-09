@@ -13,7 +13,7 @@ LIP_HEIGHT = 80
 MOUTH_LANDMARKS = [61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 308, 324, 318, 402, 317, 14, 87, 178, 88, 78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308]
 DATASET = 'Dataset_Indo'
 DATASET_ZIP = "Dataset_Indo.zip"
-DATASET_URL = "https://drive.google.com/drive/folders/1gVvOMczguUKT57p0oXIq9LYP_Ff82L6n?usp=sharing"
+DATASET_URL = "https://drive.google.com/file/d/1Qh8kIajzJfVmj0hHnaNEQe6TptNoPjHj/view?usp=sharing"
 LABEL_DICT = {0: 'air', 1: 'bakso', 2: 'doa', 3: 'kopi', 4: 'novel', 5: 'puding', 6: 'rumus', 7: 'surat'}
 img_path = 'background.webp'
 
