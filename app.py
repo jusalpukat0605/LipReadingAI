@@ -17,6 +17,17 @@ DATASET_URL = "https://drive.google.com/drive/folders/1gVvOMczguUKT57p0oXIq9LYP_
 LABEL_DICT = {0: 'air', 1: 'bakso', 2: 'doa', 3: 'kopi', 4: 'novel', 5: 'puding', 6: 'rumus', 7: 'surat'}
 img_path = 'background.webp'
 
+MODEL_FILES = {
+    "Non-Augmented": {
+        "file_id": "1NpEXNRSbsSXRxu3JJGJb0rlqgREJiIfN",
+        "filename": "model_3DCNN+LSTM.keras"
+    },
+    "Augmented": {
+        "file_id": "1xnfxejf0Q93D6dkILOpGhggwxN9yYsZo",
+        "filename": "model_3DCNN+LSTM with Aug.keras"
+    }
+}
+
 def set_bg(img_path):
     with open(img_path, "rb") as f:
         encoded = base64.b64encode(f.read()).decode()
@@ -54,20 +65,22 @@ def ensure_dataset():
             zip_ref.extractall('.')
         os.remove(DATASET_ZIP)
 
+def ensure_model(model_type):
+    model_info = MODEL_FILES[model_type]
+    model_path = model_info["filename"]
+
+    if not os.path.exists(model_path):
+        with st.spinner("Downloading model from Google Drive..."):
+            url = f"https://drive.google.com/uc?id={model_info['file_id']}"
+            gdown.download(url, model_path, quiet=False)
+
+    return model_path
+
 @st.cache_resource
 def load_model(model_type):
-    if model_type == "Augmented":
-        model_path = "model_3DCNN+LSTM with Aug.keras"
-    else:
-        model_path = "model_3DCNN+LSTM.keras"
-
-    try:
-        model = tf.keras.models.load_model(model_path)
-        st.success(f"Model loaded: {model_path}")
-        return model
-    except Exception as e:
-        st.error(f"Error loading model: {str(e)}")
-        return None
+    model_path = ensure_model(model_type)
+    model = tf.keras.models.load_model(model_path)
+    return model
 
 def avail_videos(DATASET):
     videos_dict = {}
