@@ -20,6 +20,11 @@ https://www.kaggle.com/datasets/luthfiaca/indonesia-lipreading-468landmarksmedia
 
 Dataset berisi kumpulan video beberapa orang yang mengucapkan kata tertentu. Dataset melibatkan lebih dari satu subjek sehingga mencakup variasi bentuk wajah, gaya bicara, dan gerakan bibir.
 
+Berikut adalah dataset dan model yang kami gunakan untuk Streamlit:
+- Augmented: https://drive.google.com/file/d/1xnfxejf0Q93D6dkILOpGhggwxN9yYsZo/view?usp=sharing
+- Non-augmented: https://drive.google.com/file/d/1NpEXNRSbsSXRxu3JJGJb0rlqgREJiIfN/view?usp=drive_link
+- Dataset: https://drive.google.com/file/d/1Qh8kIajzJfVmj0hHnaNEQe6TptNoPjHj/view?usp=drive_link
+
 # 🧠 Model Architecture
 3D CNN → Ekstraksi fitur spasial & temporal dari video
 LSTM → Pemodelan urutan gerakan bibir
