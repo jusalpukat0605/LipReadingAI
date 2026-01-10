@@ -13,6 +13,8 @@ Model ini mampu mengklasifikasikan gerakan bibir ke dalam 8 kelas kata:
 🧮 rumus
 ✉️ surat
 
+Link deployment Streamlit App: https://lipreadaidl.streamlit.app/
+
 # 📊 Dataset
 Proyek ini menggunakan dataset open-access dari Kaggle:
 Indonesia Lip Reading Dataset
